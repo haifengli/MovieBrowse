@@ -20,8 +20,8 @@ consumes the local database as the source.
 
 ### How to use the app
 When app loads, it displays the 'peace' sample word in the input box. Put the focus in the input box to trigger the IME, then
-tap on the 'Search' icon of the keyboard. The list of search results would display. Tap on any movie item would go
-to the detail page. Toggling the star on the right side of the Movie item would insert and remove the movie into the favorites list.
+tap on the 'Search' icon of the keyboard. The search results would display. Tap on any movie item would go
+to the detail page. Toggling the star on the right side of the Movie item in search page would insert and remove the movie into the favorites list.
 The favorite list persists across the app launches.
 
 In case the app does not display the results, try the following URL to make sure that response does come back:
