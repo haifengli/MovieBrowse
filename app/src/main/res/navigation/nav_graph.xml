@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/directory_fragment">
+
+
+    <fragment android:id="@+id/directory_fragment"
+        android:name="org.yellowtree.moviebrowse.ui.MovieContainerFragment"
+        android:label="Directory">
+<!--        <action android:id="@+id/action_directory_to_detail_fragment"-->
+<!--            app:destination="@id/employee_fragment"/>-->
+
+    </fragment>
+
+
+<!--    <fragment android:id="@+id/employee_fragment"-->
+<!--        android:name="org.yellowtree.employeedirectory.ui.EmployeeDetailFragment"-->
+<!--        android:label="Employee">-->
+<!--    </fragment>-->
+
+
+</navigation>
