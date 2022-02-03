@@ -39,8 +39,8 @@ class FavoritesFragment : Fragment() {
     private fun initFavListView() {
 
         favRV.layoutManager = LinearLayoutManager(favRV.context, LinearLayoutManager.VERTICAL, false)
-        val favResultListAdapter = SearchResultListAdapter(true, object : ItemClickListener{
-            override fun onMovieItemClick(id: String) {
+        val favResultListAdapter = SearchResultListAdapter(this, viewModel,true, object : ItemClickListener{
+            override fun onMovieItemClick(thumbnail: View, id: String) {
 
             }
 

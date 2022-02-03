@@ -3,5 +3,11 @@
     <string name="search_movie">Search</string>
     <string name="favorites_movie">Favorites</string>
     <string name="year">Year:</string>
+    <string name="Plot">Description:</string>
+    <string name="Peace">peace</string>
     <string name="type">Type:</string>
+    <string name="award">Awards:</string>
+    <string name="director">Director:</string>
+
+    <string name="network_error">Fails to fetch the network resource</string>
 </resources>

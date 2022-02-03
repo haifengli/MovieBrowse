@@ -1,8 +1,10 @@
 package org.yellowtree.moviebrowse.ui
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +12,7 @@ import org.yellowtree.moviebrowse.R
 import org.yellowtree.moviebrowse.databinding.SearchResultItemBinding
 import org.yellowtree.moviebrowse.model.SearchResult
 
-class SearchResultListAdapter(private val isFav : Boolean, val itemClickCallback : ItemClickListener, private val favCallback : (SearchResult, Boolean)->Unit) : ListAdapter<SearchResult, SearchResultViewHolder>(object : DiffUtil.ItemCallback<SearchResult>() {
+class SearchResultListAdapter(private val fragment : Fragment, private val viewModel : SearchViewModel, private val isFav : Boolean, val itemClickCallback : ItemClickListener, private val favCallback : (SearchResult, Boolean)->Unit) : ListAdapter<SearchResult, SearchResultViewHolder>(object : DiffUtil.ItemCallback<SearchResult>() {
 
     override fun areItemsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
         return oldItem.id == newItem.id
@@ -33,7 +35,9 @@ class SearchResultListAdapter(private val isFav : Boolean, val itemClickCallback
 
     override fun onBindViewHolder(holder: SearchResultViewHolder, position: Int) {
         val searchResult = getItem(position)
+        holder.binding.lifecycleOwner = fragment.viewLifecycleOwner
         holder.binding.searchResult = searchResult
+        holder.binding.movieDetail = viewModel.fetchMovie(searchResult.id)
         holder.binding.checkBox.apply {
             if (isFav) {
                 isSelected = true
@@ -42,7 +46,7 @@ class SearchResultListAdapter(private val isFav : Boolean, val itemClickCallback
             }
         }
         holder.binding.cardView.setOnClickListener {
-            itemClickCallback.onMovieItemClick(searchResult.id)
+            itemClickCallback.onMovieItemClick(it.findViewById(R.id.pic_img),searchResult.id)
         }
 
         holder.binding.checkBox.setOnClickListener {
@@ -72,5 +76,5 @@ class SearchResultViewHolder(val binding : SearchResultItemBinding) : RecyclerVi
 
 
 interface ItemClickListener {
-    fun onMovieItemClick(id : String)
+    fun onMovieItemClick(thumbnail: View, id : String)
 }

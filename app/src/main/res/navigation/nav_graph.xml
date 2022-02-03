@@ -2,22 +2,22 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/directory_fragment">
+    app:startDestination="@id/search_fragment">
 
 
-    <fragment android:id="@+id/directory_fragment"
+    <fragment android:id="@+id/search_fragment"
         android:name="org.yellowtree.moviebrowse.ui.MovieContainerFragment"
         android:label="Directory">
-<!--        <action android:id="@+id/action_directory_to_detail_fragment"-->
-<!--            app:destination="@id/employee_fragment"/>-->
+        <action android:id="@+id/action_search_to_detail"
+            app:destination="@id/detail_fragment"/>
 
     </fragment>
 
 
-<!--    <fragment android:id="@+id/employee_fragment"-->
-<!--        android:name="org.yellowtree.employeedirectory.ui.EmployeeDetailFragment"-->
-<!--        android:label="Employee">-->
-<!--    </fragment>-->
+ <fragment android:id="@+id/detail_fragment"
+        android:name="org.yellowtree.moviebrowse.ui.DetailFragment"
+       android:label="Detail">
+  </fragment>
 
 
 </navigation>

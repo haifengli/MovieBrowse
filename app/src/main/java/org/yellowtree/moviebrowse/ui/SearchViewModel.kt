@@ -6,6 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.yellowtree.moviebrowse.db.MovieDB
+import org.yellowtree.moviebrowse.model.Movie
 import org.yellowtree.moviebrowse.model.SearchResult
 import org.yellowtree.moviebrowse.repository.SearchAPIServiceRepo
 import org.yellowtree.moviebrowse.util.AbsentLiveData
@@ -38,6 +39,9 @@ class SearchViewModel(app: Application) : AndroidViewModel(app) {
 
     }
 
+    fun fetchMovie(id : String) : LiveData<Resource<Movie>> {
+        return searchAPIServiceRepo.find(getApplication(), id)
+    }
 
     fun setQuery(input : String) {
         val queryString = input.toLowerCase(Locale.getDefault()).trim()

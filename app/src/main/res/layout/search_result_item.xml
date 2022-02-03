@@ -6,13 +6,18 @@
     <data>
         <import type="org.yellowtree.moviebrowse.model.SearchResult" />
 
+        <import type="org.yellowtree.moviebrowse.model.Movie"/>
 
+        <import type="androidx.lifecycle.LiveData"/>
+        <import type="org.yellowtree.moviebrowse.util.Resource" />
+        <import type="org.yellowtree.moviebrowse.ui.SearchViewModel" />
         <variable
             name="searchResult"
             type="SearchResult" />
+
         <variable
-            name="clickListener"
-            type="android.view.View.OnClickListener" />
+            name="movieDetail"
+            type="LiveData&lt;Resource&lt;Movie>>" />
     </data>
 
 
@@ -20,27 +25,24 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="15dp"
-        android:onClick="@{clickListener}"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
         android:focusable="true"
         android:background="@drawable/employee_bg">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
             >
             <ImageView
                 android:id="@+id/pic_img"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:background="@drawable/round_bg"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:loadImage="@{searchResult.posterUrl}"
-                app:clip="@{true}"
                 />
             <TextView
                 android:id="@+id/title_txt"
@@ -52,8 +54,6 @@
                 android:layout_marginStart="@dimen/name_start_margin"
                 app:layout_constraintStart_toEndOf="@id/pic_img"
                 tools:text="This is a fake name"/>
-
-
 
             <TextView
                 android:id="@+id/year_info_txt"
@@ -81,10 +81,10 @@
 
 
             <TextView
-                android:id="@+id/type_info_txt"
+                android:id="@+id/director_info_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/type"
+                android:text="@string/director"
                 app:layout_constraintTop_toBottomOf="@id/year_txt"
                 app:layout_constraintStart_toStartOf="@id/title_txt"
                 />
@@ -92,20 +92,34 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{searchResult.type}"
+                android:text="@{movieDetail.data.director}"
                 android:textSize="15sp"
                 app:layout_constraintTop_toBottomOf="@id/year_txt"
-                app:layout_constraintStart_toEndOf="@id/type_info_txt"
+                app:layout_constraintStart_toEndOf="@id/director_info_txt"
                 android:layout_marginStart="@dimen/name_start_margin"
                 />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{movieDetail.data.shortPlot}"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@id/director_info_txt"
+                app:layout_constraintStart_toStartOf="@id/director_info_txt"
+                android:layout_marginTop="10dp"
+                />
+
+
+
+
+            <ImageView
                 android:id="@+id/check_box"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/year_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_star"/>
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/btn_star"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

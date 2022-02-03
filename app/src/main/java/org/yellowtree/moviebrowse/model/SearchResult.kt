@@ -1,6 +1,7 @@
 package org.yellowtree.moviebrowse.model
 
 import androidx.room.Entity
+import org.yellowtree.moviebrowse.repository.SearchAPIServiceRepo
 
 @Entity(
     tableName = "searchResult",
