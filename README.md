@@ -44,4 +44,5 @@ https://github.com/haifengli/MovieBrowse.git
 Pagination for the search result
 Add Instrumental test cases
 Introduce Dependency Injection
+Clean up the hardcoded resource values
 
