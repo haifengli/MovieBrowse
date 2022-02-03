@@ -1,7 +1,7 @@
 
 IMDB Movie search example
 =======================================================
-This is the SalesForce homework to show case how to search the movie using OMDB API and persist the favorite movies in local data base.
+This is the SalesForce homework to show case how to search the movie using OMDB API and persist the favorite movies in local database.
 
 ### Build
 AS version: Arctic Fox 2020.3.1
@@ -42,4 +42,6 @@ https://github.com/haifengli/MovieBrowse.git
 ### TODO
 
 Pagination for the search result
+Add Instrumental test cases
+Introduce Dependency Injection
 
